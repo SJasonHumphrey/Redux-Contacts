@@ -3,6 +3,7 @@ import Contact from './Contact';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getContacts } from '../../actions/contactActions';
+import {motion} from "framer-motion"
 
 class Contacts extends Component {
 
@@ -14,9 +15,14 @@ class Contacts extends Component {
     const { contacts } = this.props; 
     return (
       <React.Fragment>
-        <h1 className="display-4 mb-2 logo mb-5">
+              <motion.h1
+        style={{  color: '#e1ebfd'}}
+        initial={{ y: -200 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", duration: 1.0 }}
+        whileHover={{ scale: 1.1 }}>
           Contact List
-        </h1>
+        </motion.h1>
         {contacts.map(contact => (
           <Contact key={contact.id} contact={contact}/>
         ))}

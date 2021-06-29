@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteContact } from '../../actions/contactActions';
+import {motion} from "framer-motion"
 
 class Contact extends Component {
   state = {
@@ -18,7 +19,13 @@ class Contact extends Component {
     const { showContactInfo } = this.state;
 
     return (
-      <div className="card card-body mb-3">
+      <motion.div 
+      className="card card-body mb-3"
+      initial={{ y: -200 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", duration: 1.0 }}
+      whileHover={{ scale: 1.1 }}
+      >
         <h4>
           {name}{' '}
           <i
@@ -53,7 +60,7 @@ class Contact extends Component {
             <li className="list-group-item">Phone: {phone}</li>
           </ul>
         ) : null}
-      </div>
+      </motion.div>
     );
   }
 }

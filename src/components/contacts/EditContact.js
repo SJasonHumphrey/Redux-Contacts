@@ -111,6 +111,7 @@ class EditContact extends Component {
               type="submit"
               value="Update Contact"
               className="btn btn-light btn-block"
+              style={{backgroundColor: "violet"}}
             />
           </form>
         </div>
